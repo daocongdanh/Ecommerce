@@ -4,7 +4,7 @@ import com.example.ecommerce.dtos.CartDTO;
 import com.example.ecommerce.dtos.CartUpdateDTO;
 import com.example.ecommerce.responses.CartResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.CartService;
+import com.example.ecommerce.services.cart.CartService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

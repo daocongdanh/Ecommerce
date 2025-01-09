@@ -1,8 +1,7 @@
 package com.example.ecommerce.filters;
 
 import com.example.ecommerce.repositories.TokenRepository;
-import com.example.ecommerce.responses.ResponseError;
-import com.example.ecommerce.services.JwtService;
+import com.example.ecommerce.services.jwt.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -10,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -3,7 +3,7 @@ package com.example.ecommerce.controllers;
 import com.example.ecommerce.dtos.AddressDTO;
 import com.example.ecommerce.dtos.AddressUpdateDTO;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.AddressService;
+import com.example.ecommerce.services.address.AddressService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

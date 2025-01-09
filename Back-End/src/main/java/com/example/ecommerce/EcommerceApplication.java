@@ -1,19 +1,13 @@
 package com.example.ecommerce;
 
-import com.example.ecommerce.models.Product;
 import com.example.ecommerce.repositories.OrderRepository;
-import com.example.ecommerce.services.OrderService;
+import com.example.ecommerce.services.order.OrderService;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class EcommerceApplication {
@@ -26,7 +20,6 @@ public class EcommerceApplication {
                 .directory(".")
                 .filename("local.env")
                 .load();
-
         // Database
         System.setProperty("APP_PORT", dotenv.get("APP_PORT"));
         System.setProperty("DATABASE_URL", dotenv.get("DATABASE_URL"));
@@ -58,6 +51,16 @@ public class EcommerceApplication {
 
         // Health check
         System.setProperty("HEALTH_CHECK_BASE_PATH", dotenv.get("HEALTH_CHECK_BASE_PATH"));
+
+        // Login google
+        System.setProperty("GOOGLE_CLIENT_ID", dotenv.get("GOOGLE_CLIENT_ID"));
+        System.setProperty("GOOGLE_CLIENT_SECRET", dotenv.get("GOOGLE_CLIENT_SECRET"));
+        System.setProperty("GOOGLE_REDIRECT_URI", dotenv.get("GOOGLE_REDIRECT_URI"));
+
+        // Login facebook
+        System.setProperty("FACEBOOK_CLIENT_ID", dotenv.get("FACEBOOK_CLIENT_ID"));
+        System.setProperty("FACEBOOK_CLIENT_SECRET", dotenv.get("FACEBOOK_CLIENT_SECRET"));
+        System.setProperty("FACEBOOK_REDIRECT_URI", dotenv.get("FACEBOOK_REDIRECT_URI"));
         SpringApplication.run(EcommerceApplication.class, args);
     }
     @Bean

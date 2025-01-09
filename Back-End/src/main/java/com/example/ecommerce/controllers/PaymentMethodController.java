@@ -2,7 +2,7 @@ package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.dtos.PaymentMethodDTO;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.PaymentMethodService;
+import com.example.ecommerce.services.paymentmethod.PaymentMethodService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

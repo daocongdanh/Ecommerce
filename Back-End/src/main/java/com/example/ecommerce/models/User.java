@@ -45,6 +45,12 @@ public class User implements UserDetails {
     @Column(name = "provider_id", unique = true)
     private String providerId;
 
+    @Column(name = "facebook_account_id", unique = true)
+    private String facebookAccountId;
+
+    @Column(name = "google_account_id", unique = true)
+    private String googleAccountId;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<UserRole> userRoles;
 

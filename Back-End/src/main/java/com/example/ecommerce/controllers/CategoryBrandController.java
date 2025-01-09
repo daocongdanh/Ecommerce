@@ -1,9 +1,8 @@
 package com.example.ecommerce.controllers;
 
-import com.example.ecommerce.models.Attribute;
 import com.example.ecommerce.responses.CategoryBrandResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.CategoryBrandService;
+import com.example.ecommerce.services.categorybrand.CategoryBrandService;
 import com.example.ecommerce.utils.Translator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

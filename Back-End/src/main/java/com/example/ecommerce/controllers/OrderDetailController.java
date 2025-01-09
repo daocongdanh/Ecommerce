@@ -2,7 +2,7 @@ package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.responses.OrderDetailResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.OrderDetailService;
+import com.example.ecommerce.services.orderdetail.OrderDetailService;
 import com.example.ecommerce.utils.Translator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -4,19 +4,14 @@ import com.example.ecommerce.dtos.ProductDTO;
 import com.example.ecommerce.responses.PageResponse;
 import com.example.ecommerce.responses.ProductResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.ProductService;
+import com.example.ecommerce.services.product.ProductService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("${api.prefix}/products")

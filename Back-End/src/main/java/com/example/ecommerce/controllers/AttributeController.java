@@ -2,9 +2,8 @@ package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.dtos.AttributeDTO;
 import com.example.ecommerce.models.Attribute;
-import com.example.ecommerce.responses.AttributeResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.AttributeService;
+import com.example.ecommerce.services.attribute.AttributeService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -2,7 +2,7 @@ package com.example.ecommerce.utils;
 
 import com.example.ecommerce.exceptions.InvalidFileTypeException;
 import com.example.ecommerce.exceptions.InvalidParamException;
-import com.example.ecommerce.services.CloudinaryService;
+import com.example.ecommerce.services.cloudinary.CloudinaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

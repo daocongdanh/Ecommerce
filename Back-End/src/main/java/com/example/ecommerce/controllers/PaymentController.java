@@ -1,10 +1,9 @@
 package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.dtos.OrderDTO;
-import com.example.ecommerce.responses.OrderResponse;
 import com.example.ecommerce.responses.PaymentResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.PaymentService;
+import com.example.ecommerce.services.payment.PaymentService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,10 +15,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("${api.prefix}/payments")

@@ -17,5 +17,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     @Query("select u from User u where :name is null or u.fullName like %:name%")
     Page<User> findAllByFullName(@Param("name") String name, Pageable pageable);
+    Optional<User> findByGoogleAccountId(String googleAccountId);
+    Optional<User> findByFacebookAccountId(String facebookAccountId);
 
 }

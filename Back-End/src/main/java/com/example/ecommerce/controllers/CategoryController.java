@@ -3,7 +3,7 @@ package com.example.ecommerce.controllers;
 import com.example.ecommerce.dtos.CategoryDTO;
 import com.example.ecommerce.models.Category;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.CategoryService;
+import com.example.ecommerce.services.category.CategoryService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

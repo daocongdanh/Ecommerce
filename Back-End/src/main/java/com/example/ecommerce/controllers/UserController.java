@@ -1,10 +1,13 @@
 package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.dtos.*;
+import com.example.ecommerce.enums.LoginType;
 import com.example.ecommerce.models.User;
+import com.example.ecommerce.responses.LoginResponse;
 import com.example.ecommerce.responses.ResponseSuccess;
 import com.example.ecommerce.responses.UserResponse;
-import com.example.ecommerce.services.UserService;
+import com.example.ecommerce.services.auth.AuthService;
+import com.example.ecommerce.services.user.UserService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -15,11 +18,15 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.Map;
+
 @RestController
 @RequestMapping("${api.prefix}/users")
 @RequiredArgsConstructor
 public class UserController{
     private final UserService userService;
+    private final AuthService authService;
 
     @PostMapping(value = "/register")
     public ResponseEntity<ResponseSuccess> createUser(@Valid @RequestBody RegisterDTO registerDTO){
@@ -183,6 +190,41 @@ public class UserController{
         return ResponseEntity.ok().body(ResponseSuccess.builder()
                 .message(Translator.toLocale("user.delete.success"))
                 .status(HttpStatus.NO_CONTENT.value())
+                .build());
+    }
+
+    @GetMapping("/auth/social-login")
+    public ResponseEntity<ResponseSuccess> socialAuth(@RequestParam("login_type") String loginType){
+        loginType = loginType.trim().toLowerCase();
+        String url = authService.generateAuthUrl(loginType);
+        return ResponseEntity.ok().body(ResponseSuccess.builder()
+                .message("success")
+                .status(HttpStatus.OK.value())
+                .data(url)
+                .build());
+    }
+
+    @GetMapping("/auth/google/callback")
+    public ResponseEntity<ResponseSuccess> googleCallback(@RequestParam("code") String code,
+                                                          HttpServletRequest request) throws IOException {
+        Map<String, Object> userInfo = authService.authenticateAndFetchProfile(code, LoginType.GOOGLE);
+        LoginResponse loginResponse = authService.loginSocial(userInfo, request, LoginType.GOOGLE);
+        return ResponseEntity.ok().body(ResponseSuccess.builder()
+                .message("Login google successfully")
+                .status(HttpStatus.OK.value())
+                .data(loginResponse)
+                .build());
+    }
+
+    @GetMapping("/auth/facebook/callback")
+    public ResponseEntity<ResponseSuccess> facebookCallback(@RequestParam("code") String code,
+                                                            HttpServletRequest request) throws IOException {
+        Map<String, Object> userInfo = authService.authenticateAndFetchProfile(code, LoginType.FACEBOOK);
+        LoginResponse loginResponse = authService.loginSocial(userInfo, request, LoginType.FACEBOOK);
+        return ResponseEntity.ok().body(ResponseSuccess.builder()
+                .message("Login facebook successfully")
+                .status(HttpStatus.OK.value())
+                .data(loginResponse)
                 .build());
     }
 }

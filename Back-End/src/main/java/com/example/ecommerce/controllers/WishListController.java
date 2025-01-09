@@ -2,7 +2,7 @@ package com.example.ecommerce.controllers;
 
 import com.example.ecommerce.dtos.WishListDTO;
 import com.example.ecommerce.responses.ResponseSuccess;
-import com.example.ecommerce.services.WishListService;
+import com.example.ecommerce.services.wishlist.WishListService;
 import com.example.ecommerce.utils.Translator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
