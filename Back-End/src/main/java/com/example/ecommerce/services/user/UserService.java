@@ -25,6 +25,7 @@ public interface UserService {
     User findById(long id);
     UserResponse updateUserStatus(long id, boolean active);
     UserResponse changePassword(long id, ChangePasswordDTO changePasswordDTO);
+
     void sendMailForgotPassword(String email);
     VerifyOtpResponse verifyOtp(String otp, String email);
     void resetPassword(long id, ResetPasswordDTO resetPasswordDTO);
